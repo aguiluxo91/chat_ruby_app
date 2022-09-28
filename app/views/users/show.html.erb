@@ -1,0 +1,16 @@
+<h1 class="center">Welcome to <%= @user.username %>'s page</h1>
+<div class="ui centered raised card">
+    <div class="content">
+        <div class="center aligned">
+            <%= gravatar_for @user, size: 100 %>
+        </div>
+        <h4 class="center">
+            <%= @user.username %>
+        </h4>
+        <% if logged_in? && (current_user == @user || current_user.admin?) %>
+            <div class="center">
+                <%= link_to "Edit your account", edit_user_path %>
+            </div>
+        <% end %>
+    </div>
+</div>

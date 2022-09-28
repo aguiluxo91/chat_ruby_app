@@ -1,0 +1,22 @@
+<% if obj.errors.any? %>
+    <div class="ui grid errors">
+        <div class="ten wide column">
+            <div class="ui red message">
+                <div class="header">
+                    <h2>
+                        <%= pluralize(obj.errors.count, "error")%>
+                        prohibited this article from being saved:
+                    </h2>
+                </div>
+                
+                <div class="list">
+                    <ul>
+                        <% obj.errors.full_messages.each do |msg| %>
+                            <li><%= msg %></li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %>

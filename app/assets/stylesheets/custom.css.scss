@@ -1,1 +1,42 @@
 @import 'semantic-ui';
+
+.center {
+    text-align: center;
+}
+
+.chatbox {
+    height: 450px;
+}
+
+.errors {
+    margin-bottom: 10px;
+}
+
+.messages {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.listing {
+    list-style: none;
+    padding-left: 0;
+}
+
+.users {
+    width: 50%;
+    margin: auto;
+}
+
+#messages {
+    height: 15em;
+    overflow: auto;
+}
+
+.input {
+    button {
+        display: none;
+    }
+}

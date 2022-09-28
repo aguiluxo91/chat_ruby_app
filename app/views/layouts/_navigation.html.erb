@@ -1,20 +1,26 @@
 
-<a class="item">
-    Chatroom
-</a>
-<a class="item">
-    Messages
-</a>
+<% if logged_in? %>
+    <%= link_to "Chatroom", root_path, class: "item" %>
+    <%= link_to "Users", users_path, class: "item" %>
+<% else %>
+    <span class="item">Welcome to MessageMe!</span>
+<% end %>
+
 <div class="right menu">
-    <div class="ui dropdown item">
-    Account <i class="dropdown icon"></i>
-    <div class="menu">
-        <a class="item">Log out</a>
-        <a class="item">Log in</a>
-        <a class="item">Sign up</a>
-    </div>
-    </div>
-    <div class="item">
-        <div class="ui primary button">Sign Up</div>
-    </div>
+    <% if logged_in?  %>
+        <span class="item">Welcome &nbsp<%= current_user.username %></span>
+        <div class="ui dropdown item">
+            Account <i class="dropdown icon"></i>
+            <div class="menu">
+                <a class="item">Log out</a>
+                <a class="item">Log in</a>
+                <a class="item">Sign up</a>
+            </div>
+        </div>
+    
+        <%= link_to "Log out", logout_path, class: "item", data: {"turbo-method": :delete} %>
+    <% else %>
+        <%= link_to "Log in", login_path, class: "item" %>
+        <%= link_to "Sign up", signup_path, class:"ui primary button" %>
+    <% end %>
 </div>
